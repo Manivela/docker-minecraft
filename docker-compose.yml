@@ -6,10 +6,8 @@ services:
         environment:
             - EULA=TRUE
             - ONLINE_MODE=FALSE
-            - SEED="yunusleyla"
-            - LEVEL=manivela
-            - LEVEL_TYPE=AMPLIFIED
-            - VIEW_DISTANCE=20
+            - SEED="-1824611495"
+            - VIEW_DISTANCE=24
             - SNOOPER_ENABLED=false
             - ENABLE_ROLLING_LOGS=true
             - USE_AIKAR_FLAGS=true
