@@ -1,0 +1,28 @@
+version: '3.3'
+services:
+    minecraft-server:
+        ports:
+            - '25565:25565'
+        environment:
+            - EULA=TRUE
+            - ONLINE_MODE=FALSE
+            - TYPE=FABRIC
+            - SEED="yunusleyla"
+            - LEVEL=manivela
+            - LEVEL_TYPE=AMPLIFIED
+            - VIEW_DISTANCE=20
+            - SNOOPER_ENABLED=false
+            - MODS_FILE=/extras/mods.txt
+            - ENABLE_ROLLING_LOGS=true
+            - USE_AIKAR_FLAGS=true
+            - MEMORY="12G"
+            - ENABLE_AUTOPAUSE=TRUE
+
+        volumes:
+          - /etc/timezone:/etc/timezone:ro
+          - data:/data
+          - ./mods.txt:/extras/mods.txt:ro
+
+        restart: unless-stopped
+        container_name: minecraft
+        image: itzg/minecraft-server
