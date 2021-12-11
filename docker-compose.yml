@@ -20,7 +20,7 @@ services:
 
         volumes:
           - /etc/timezone:/etc/timezone:ro
-          - data:/data
+          - ./data:/data
           - ./mods.txt:/extras/mods.txt:ro
 
         restart: unless-stopped
