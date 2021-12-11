@@ -15,7 +15,7 @@ services:
             - MODS_FILE=/extras/mods.txt
             - ENABLE_ROLLING_LOGS=true
             - USE_AIKAR_FLAGS=true
-            - MEMORY="12G"
+            - MEMORY=12G
             - ENABLE_AUTOPAUSE=TRUE
 
         volumes:
