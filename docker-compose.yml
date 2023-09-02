@@ -1,24 +1,29 @@
-version: '3.3'
+version: "3.8"
+
 services:
-    minecraft-server:
-        ports:
-            - '25565:25565'
-        environment:
-            - EULA=TRUE
-            - ONLINE_MODE=FALSE
-            - SEED="-1824611495"
-            - VIEW_DISTANCE=24
-            - SNOOPER_ENABLED=false
-            - ENABLE_ROLLING_LOGS=true
-            - USE_AIKAR_FLAGS=true
-            - MEMORY=12G
-            - ENABLE_AUTOPAUSE=TRUE
-            - MAX_TICK_TIME=-1
-
-        volumes:
-          - /etc/timezone:/etc/timezone:ro
-          - ./data:/data
-
-        restart: unless-stopped
-        container_name: minecraft
-        image: itzg/minecraft-server
+  minecraft-server:
+    image: itzg/minecraft-server
+    ports:
+      - "25565:25565"
+    container_name: minecraft-server
+    environment:
+      # LEVEL_TYPE: "biomesoplenty"
+      CF_SLUG: create-astral
+      LEVEL: create-astral
+      MEMORY: 6G
+      # don't touch below here
+      TYPE: AUTO_CURSEFORGE
+      CF_API_KEY: ${CF_API_KEY}
+      EULA: true
+      ONLINE_MODE: false
+      VIEW_DISTANCE: 24
+      SNOOPER_ENABLED: false
+      ENABLE_ROLLING_LOGS: true
+      USE_AIKAR_FLAGS: true
+      ENABLE_AUTOPAUSE: true
+      MAX_TICK_TIME: -1
+      TZ: "Europe/Istanbul"
+      # REMOVE_OLD_MODS: true
+    volumes:
+      - ./data:/data
+      - ./downloads:/downloads
